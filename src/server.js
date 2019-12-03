@@ -3,9 +3,12 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const passport = require("passport");
 const app = express();
-const users = require('../routes/user');
 const mongoose = require('mongoose');
 
+// login routes
+const users = require('../routes/user');
+
+// appointment routes
 const index = require('../routes/index');
 const api = require('../routes/api/index');
 
@@ -32,8 +35,10 @@ app.get("/health", (req, res) => {
 
 
 // Routes
+// login routes
 app.use("/user", users);
 
+// appointment routes
 app.use('/', index);
 app.use('/api', api);
 
