@@ -56,6 +56,17 @@ router.get(
     }
   }
 );
+
+router.get("/fetchAll", async (req, res, next) => {
+  try {
+    const appointments = await Appointment.find({});
+    console.log(appointments);
+    return res.json({ appointments });
+  } catch (e) {
+    return res.json({ msg: e });
+  }
+});
+
 router.get(
   "/new",
   passport.authenticate("jwt", { session: false }),

@@ -15,6 +15,11 @@ const UserSchema = mongoose.Schema(
     password: {
       type: String,
       isRequired: true
+    },
+    isAdmin: {
+      type: Boolean,
+      isRequired: true,
+      default: false
     }
   },
   { timestamps: { createdAt: "createdAt" } }
